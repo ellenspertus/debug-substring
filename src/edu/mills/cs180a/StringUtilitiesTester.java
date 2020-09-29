@@ -78,4 +78,12 @@ class StringUtilitiesTester {
     {
         assertFalse(StringUtilities.isSubstring(substring, text));
     }
+
+    @ParameterizedTest
+    @CsvSource({"she", "seashore", "y t", "ellS", "Hes"})
+    void isSubtring_False_CaseSensitive(String substring)
+    {
+        String sentence = "She Sells Sea Shells By The Seashore";
+        assertFalse(StringUtilities.isSubstring(substring, sentence));
+    }
 }
