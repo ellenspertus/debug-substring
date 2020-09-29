@@ -66,7 +66,7 @@ class StringUtilitiesTester {
     }
 
     @ParameterizedTest
-    @CsvSource({"DEF,ABCDE","lies,charlie","bells,jingle bell","islas, island"})
+    @CsvSource({"DEF,ABCDE","lies,charlie","bells,jingle bell","lands, island"})
     void isSubstring_False_SubtringExtraChar(String substring, String text)
     {
         assertFalse(StringUtilities.isSubstring(substring, text));
