@@ -31,6 +31,11 @@ class StringUtilitiesTester {
     }
 
     @Test
+    void isSubstring_True_Length3Substring() {
+        assertTrue(StringUtilities.isSubstring("ABC", "DEF"));
+    }
+
+    @Test
     void getLength_True_Length6_4_9String() {
         assertTrue(StringUtilities.getLength("length") == 6);
         assertTrue(StringUtilities.getLength("size") == 4);
