@@ -28,7 +28,7 @@ public class StringUtilities {
         for (int i = 0; i < text.length(); i++) {
             // Check if current character of the full string matches start of substring.
             if (text.charAt(i) == substring.charAt(0)) {
-                if (isSubstringHelper(substring, text, i + 1)) {
+                if (isSubstringHelper(substring, text, i)) {
                     // If so, see if the rest of the strings match.
                     return true;
                 }
@@ -40,13 +40,10 @@ public class StringUtilities {
 
     // check if substring appears at the given offset in text
     private static boolean isSubstringHelper(String substring, String text, int offset) {
-        // Note: We don't enter this loop, so we jump to true. The error is on line
-        // 46. Since i < substring.length() && offset < text.length() is false when
-        // offset equal to 1.
         // i is used as an index for substring, offset is used for text
-        for (int i = 1; // The character with index 0 has already been tested.
+        for (int i = 0; // The character with index 0 has already been tested.
                 i < substring.length() && offset < text.length(); i++, offset++) {
-            if (text.charAt(offset) != substring.charAt(i)) {
+            if (text.charAt(offset) != substring.charAt(i) || text.length() < substring.length()) {
                 return false;
             }
         }
