@@ -1,0 +1,33 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007f32671a3fb2, pid=30048, tid=30085
+#
+# JRE version: Java(TM) SE Runtime Environment (9.0+11) (build 9.0.4+11)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (9.0.4+11, mixed mode, tiered, compressed oops, g1 gc, linux-amd64)
+# Problematic frame:
+# C  [libjimage.so+0x3fb2]  ImageStrings::find(Endian*, char const*, int*, unsigned int)+0x42
+#
+# Core dump will be written. Default location: Core dumps may be processed with "/usr/share/apport/apport %p %s %c %d %P %E" (or dumping to /home/ben/CS280A-workspace/debug-substring/core.30048)
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:43175 -ea -javaagent:/home/ben/eclipse/java-2020-06/eclipse/configuration/org.eclipse.osgi/537/0/.cp/lib/javaagent-shaded.jar -Dfile.encoding=UTF-8 org.eclipse.jdt.internal.junit.runner.RemoteTestRunner -version 3 -port 39215 -testLoaderClass org.eclipse.jdt.internal.junit5.runner.JUnit5TestLoader -loaderpluginname org.eclipse.jdt.junit5.runtime -classNames edu.mills.cs180a.StringUtilitiesTester
+
+Host: AMD Ryzen 5 1600 Six-Core Processor, 12 cores, 7G, Ubuntu 20.04.1 LTS
+Time: Wed Sep 30 18:44:00 2020 PDT elapsed time: 1117 seconds (0d 0h 18m 37s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f32601a6800):  JavaThread "Signal Dispatcher" daemon [_thread_in_vm, id=30085, stack(0x00007f324405b000,0x00007f324415c000)]
+
+Stack: [0x00007f324405b000,0x00007f324415c000],  sp=0x00007f3244159260,  free space=1016k
+Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libjimage.so+0x3fb2]  ImageStrings::find(Endian*, char const*, int*, unsigned int)+0x42
+C  [libjimage.so+0x4b8c]  ImageFileReader::find_location_index(char const*, unsigned long long*) const+0x3c
+C  [libjimage.so+0x505a]  JIMAGE_FindResource+0xba
+V  [libjvm.so+0x5aae8e]
