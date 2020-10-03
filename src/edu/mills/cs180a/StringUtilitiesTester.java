@@ -50,6 +50,12 @@ class StringUtilitiesTester {
     }
 
     @ParameterizedTest
+    @CsvSource({"ZABC, ZABC", "ABC, ZABC", "BCEFG, ZABCEFGHIFK"})
+    void isSubstring_False_MatchSubstring(String substring, String Text) {
+        assertTrue(StringUtilities.isSubstring(substring, Text));
+    }
+
+    @ParameterizedTest
     @CsvSource({"ZABCDE, ZABC", "ABCD, ZABC", "BCEFG, ZABC"})
     void isSubstring_False_LargeSubstring(String substring, String Text) {
         assertFalse(StringUtilities.isSubstring(substring, Text));

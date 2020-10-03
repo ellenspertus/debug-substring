@@ -24,11 +24,11 @@ public class StringUtilities {
         if (substring.isEmpty()) {
             return true;
         }
-        for (int i = 0; i < text.length(); i++) {
-            // Check if current character of the full string matches start of substring.
-            if (text.charAt(i) == substring.charAt(0)) {
 
-                // If so, Check the rest of the strings match.
+        for (int i = 0; i < text.length(); i++) {
+            // Check current character of the full string matches start of substring.
+            if (text.charAt(i) == substring.charAt(0)) {
+                // Check the rest of the strings matches substring without first character.
                 if (isSubstringHelper(substring, text, i + 1)) {
                     return true;
                 }
@@ -38,11 +38,11 @@ public class StringUtilities {
     }
 
     private static boolean isSubstringHelper(String substring, String text, int offset) {
-        // Return false if substring length is greater than the rest of the text
-        if ((substring.length() - 1) > (text.length() - offset))
+        // Return false if substring length is greater than the rest of the text.
+        if ((getLength(substring) - 1) > (getLength(text) - offset))
             return false;
 
-        // check if substring appears at the given offset in text
+        // check substring appears at the given offset in text.
         for (int i = 1; i < substring.length(); i++, offset++) {
             if (text.charAt(offset) != substring.charAt(i))
                 return false;
