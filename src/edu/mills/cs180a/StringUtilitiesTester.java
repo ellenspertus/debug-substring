@@ -16,13 +16,13 @@ class StringUtilitiesTester {
     }
 
     @Test
-    void isSubstring_False_EmptySubstring() {
-        assertFalse(StringUtilities.isSubstring("", "foo"));
+    void isSubstring_False_EmptyString() {
+        assertFalse(StringUtilities.isSubstring("foo", ""));
     }
 
     @Test
-    void isSubstring_False_EmptyString() {
-        assertFalse(StringUtilities.isSubstring("foo", ""));
+    void isSubstring_False_EmptySubstring() {
+        assertFalse(StringUtilities.isSubstring("", "foo"));
     }
 
     @Test

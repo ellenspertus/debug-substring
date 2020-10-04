@@ -41,7 +41,6 @@ public class StringUtilities {
         // Return false if length of substring is greater than length of rest of text.
         if ((substring.length() - 1) > (text.length() - offset))
             return false;
-
         // check substring appears at the given offset in text.
         for (int i = 1; i < substring.length(); i++, offset++) {
             if (text.charAt(offset) != substring.charAt(i))
