@@ -16,20 +16,18 @@ class StringUtilitiesTester {
     }
 
     @Test
+    void isSubstring_False_EmptySubstring() {
+        assertFalse(StringUtilities.isSubstring("", "foo"));
+    }
+
+    @Test
     void isSubstring_False_EmptyString() {
-        assertTrue(StringUtilities.isSubstring("", "foo"));
-        // TODO: write rest
+        assertFalse(StringUtilities.isSubstring("foo", ""));
     }
 
     @Test
     void isSubstring_True_Length1Substring() {
         assertTrue(StringUtilities.isSubstring("A", "ABC"));
-    }
-
-    @ParameterizedTest
-    @CsvSource({"A, BAAA", "B,ZXCVB", "E,qwqwqwqwqwqwE", "F,asdFFF"})
-    void isSubstring_True_ContainSubstring(String substring, String Text) {
-        assertTrue(StringUtilities.isSubstring(substring, Text));
     }
 
     @Test
@@ -38,7 +36,19 @@ class StringUtilitiesTester {
     }
 
     @ParameterizedTest
-    @CsvSource({"X,ZABC", "X,ZABC", "9,ZABC"})
+    @CsvSource({"A, BAAA", "B, ZXCVB", "E, qwqwqwqwqwqwE", "F, asdFFF"})
+    void isSubstring_True_ContainSingleSubstring(String substring, String Text) {
+        assertTrue(StringUtilities.isSubstring(substring, Text));
+    }
+
+    @ParameterizedTest
+    @CsvSource({"ZABC, ZABC", "ABC, ZABC", "BCEFG, ZABCEFGHIFK"})
+    void isSubstring_True_ContainMultiSubstring(String substring, String Text) {
+        assertTrue(StringUtilities.isSubstring(substring, Text));
+    }
+
+    @ParameterizedTest
+    @CsvSource({"X, ZABC", "X, ZABC", "9, ZABC"})
     void isSubstring_False_NotContainSingleSubstring(String substring, String Text) {
         assertFalse(StringUtilities.isSubstring(substring, Text));
     }
@@ -47,12 +57,6 @@ class StringUtilitiesTester {
     @CsvSource({"XZ, ZABC", "ZX, ZABC", "CX, ZABC", "AC, ZABC"})
     void isSubstring_False_NotContain2Substring(String substring, String Text) {
         assertFalse(StringUtilities.isSubstring(substring, Text));
-    }
-
-    @ParameterizedTest
-    @CsvSource({"ZABC, ZABC", "ABC, ZABC", "BCEFG, ZABCEFGHIFK"})
-    void isSubstring_False_MatchSubstring(String substring, String Text) {
-        assertTrue(StringUtilities.isSubstring(substring, Text));
     }
 
     @ParameterizedTest

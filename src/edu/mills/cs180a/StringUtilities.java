@@ -21,8 +21,8 @@ public class StringUtilities {
         Objects.requireNonNull(substring);
         Objects.requireNonNull(text);
 
-        if (substring.isEmpty()) {
-            return true;
+        if (substring.isEmpty() || text.isEmpty()) {
+            return false;
         }
 
         for (int i = 0; i < text.length(); i++) {
@@ -38,8 +38,8 @@ public class StringUtilities {
     }
 
     private static boolean isSubstringHelper(String substring, String text, int offset) {
-        // Return false if substring length is greater than the rest of the text.
-        if ((getLength(substring) - 1) > (getLength(text) - offset))
+        // Return false if length of substring is greater than length of rest of text.
+        if ((substring.length() - 1) > (text.length() - offset))
             return false;
 
         // check substring appears at the given offset in text.
@@ -48,9 +48,5 @@ public class StringUtilities {
                 return false;
         }
         return true;
-    }
-
-    protected static int getLength(String s) {
-        return s.length();
     }
 }
