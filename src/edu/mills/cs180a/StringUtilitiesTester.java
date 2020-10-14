@@ -33,7 +33,7 @@ class StringUtilitiesTester {
     }
 
     @Test
-    void getLength_True_Length6_4_9String() {
+    void getLength_CorrectLength_NonZeroLengths() {
         assertTrue(StringUtilities.getLength("length") == 6);
         assertTrue(StringUtilities.getLength("size") == 4);
         assertTrue(StringUtilities.getLength("bigstring") == 9);
