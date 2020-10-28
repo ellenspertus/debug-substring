@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class StringUtilitiesTester {
@@ -27,15 +28,27 @@ class StringUtilitiesTester {
   }
 
   @ParameterizedTest
-  @ValueSource(strings =  {"is", "land", "isl", "ands"})
-  void isSubstring_True_Substrings(String input) {
-    assertTrue(StringUtilities.isSubstring(input, "island"));
+  @ValueSource(strings =  {"is", "land", "isl", "and"})
+  void isSubstring_True_Substrings(String substring) {
+    assertTrue(StringUtilities.isSubstring(substring, "island"));
   }
 
   @ParameterizedTest
   @ValueSource(strings =  {"iz", "lanp", "islaz", "anda"})
-  void isSubstring_False_Substrings(String input) {
-    assertFalse(StringUtilities.isSubstring(input, "island"));
+  void isSubstring_False_Substrings(String substring) {
+    assertFalse(StringUtilities.isSubstring(substring, "island"));
+  }
+
+  @ParameterizedTest
+  @CsvSource(value = {"na bre,banana bread", "Ye.s,Said Ye.ssir"})
+  void isSubstring_True_ValidSubstrings(String substring, String text)  {
+    assertTrue(StringUtilities.isSubstring(substring, text));
+  }
+
+  @ParameterizedTest
+  @CsvSource(value = {"hi, HighFive", "yes, yeSs", "lp  he,welp hello"})
+  void isSubstring_False_InvalidSubstrings(String substring, String text) {
+    assertFalse(StringUtilities.isSubstring(substring, text));
   }
 
 }
