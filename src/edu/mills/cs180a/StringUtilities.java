@@ -42,7 +42,7 @@ public class StringUtilities {
   private static boolean isSubstringHelper(String substring, String text, int offset) {
     int subLength = getLength(substring);
 
-    if(subLength - 1 > text.length() - offset) {
+    if (subLength - 1 > text.length() - offset) {
       return false;
     }
 
