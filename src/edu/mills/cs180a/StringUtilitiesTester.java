@@ -35,19 +35,19 @@ class StringUtilitiesTester {
 
   @ParameterizedTest
   @ValueSource(strings =  {"iz", "lanp", "islaz", "anda"})
-  void isSubstring_False_Substrings(String substring) {
+  void isSubstring_False_NonSubstrings(String substring) {
     assertFalse(StringUtilities.isSubstring(substring, "island"));
   }
 
   @ParameterizedTest
   @CsvSource(value = {"na bre,banana bread", "Ye.s,Said Ye.ssir"})
-  void isSubstring_True_ValidSubstrings(String substring, String text)  {
+  void isSubstring_True_Substrings(String substring, String text)  {
     assertTrue(StringUtilities.isSubstring(substring, text));
   }
 
   @ParameterizedTest
   @CsvSource(value = {"hi, HighFive", "yes, yeSs", "lp  he,welp hello"})
-  void isSubstring_False_InvalidSubstrings(String substring, String text) {
+  void isSubstring_False_NonSubstrings(String substring, String text) {
     assertFalse(StringUtilities.isSubstring(substring, text));
   }
 
