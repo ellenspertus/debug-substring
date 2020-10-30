@@ -16,9 +16,8 @@ class StringUtilitiesTester {
   }
 
   @Test
-  void isSubstring_False_EmptyString() {
+  void isSubstring_True_EmptyString() {
     assertTrue(StringUtilities.isSubstring("", "foo"));
-    // TODO: write rest
   }
 
   @Test
@@ -36,9 +35,59 @@ class StringUtilitiesTester {
     assertTrue(StringUtilities.isSubstring("GHI", "ABC DEF GHI"));
   }
 
+  @Test
+  void isSubstring_False_Length1Substring() {
+    assertFalse(StringUtilities.isSubstring("D", "ABC"));
+  }
+
+  @Test
+  void isSubstring_False_Length2Substring() {
+    assertFalse(StringUtilities.isSubstring("C F", "ABC DEF"));
+  }
+
+  @Test
+  void isSubstring_False_Length3Substring() {
+    assertFalse(StringUtilities.isSubstring("XYZ ABC", "ABC DEF GHI"));
+  }
+
+  @Test
+  void isSubstring_True_SubstringAtStart() {
+    assertTrue(StringUtilities.isSubstring("ABC", "ABC DEF GHI"));
+  }
+
+  @Test
+  void isSubstring_True_SubstringInMiddle() {
+    assertTrue(StringUtilities.isSubstring("DEF", "ABC DEF GHI"));
+  }
+
+  @Test
+  void isSubstring_True_SubstringAtEnd() {
+    assertTrue(StringUtilities.isSubstring("GHI", "ABC DEF GHI"));
+  }
+
+  @Test
+  void isSubstring_False_SubstringAtStart() {
+    assertFalse(StringUtilities.isSubstring("ADF", "ABC DEF GHI"));
+  }
+
+  @Test
+  void isSubstring_False_SubstringInMiddle() {
+    assertFalse(StringUtilities.isSubstring("C DEG", "ABC DEF GHI"));
+  }
+
+  @Test
+  void isSubstring_False_SubstringAtEnd() {
+    assertFalse(StringUtilities.isSubstring("Ijk", "ABC DEF GHI"));
+  }
 
   @ParameterizedTest
-  @CsvSource({"The cat is in the hat,cat is in", "Tra lalalalala,tra", "Mo Ghile Mear,Ghile"})
+  @CsvSource({"The cart, tottenham", "Tra lalalalala,apple pie", "Mo Ghile Mear,run away"})
+  void isSubstring_Fail_FirstLetterOfSubstringLastLetterOfString(String input, String subInput) {
+    assertFalse(StringUtilities.isSubstring(subInput, input));
+  }
+
+  @ParameterizedTest
+  @CsvSource({"The cat is in the hat,cat is in", "Tra lalalalala,Tra", "Mo Ghile Mear,Ghile"})
   void isSubstring_True_VariedStringsAndSubstrings(String input, String subInput) {
     assertTrue(StringUtilities.isSubstring(subInput, input));
   }
