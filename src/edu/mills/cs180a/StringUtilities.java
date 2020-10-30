@@ -40,12 +40,19 @@ public class StringUtilities {
 
   // check if substring appears at the given offset in text
   private static boolean isSubstringHelper(String substring, String text, int offset) {
+    // Return false if the substring is longer than the part of the text after
+    // the beginning of the substring
+    if (substring.length() - 1 > text.substring(offset).length()) {
+      return false;
+    }
+
     // i is used as an index for substring, offset is used for text
     for (int i = 1; // The character with index 0 has already been tested.
         i < substring.length() && offset < text.length(); i++, offset++) {
       if (text.charAt(offset) != substring.charAt(i))
         return false;
     }
+
     return true;
   }
 
