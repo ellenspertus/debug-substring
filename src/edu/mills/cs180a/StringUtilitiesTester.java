@@ -77,7 +77,7 @@ class StringUtilitiesTester {
 
   @Test
   void isSubstring_False_SubstringAtEnd() {
-    assertFalse(StringUtilities.isSubstring("Ijk", "ABC DEF GHI"));
+    assertFalse(StringUtilities.isSubstring("Ijk", "GHI"));
   }
 
   @ParameterizedTest
