@@ -16,10 +16,9 @@ class StringUtilitiesTester {
     }
 
     @ParameterizedTest
-    @CsvSource({"'',''", "'',' '", "'','   '", "'',XYZ", "'',race car"})
+    @CsvSource({"'',''", "'',' '", "'','   '", "'',XYZ", "'',X Z", "'', XYZ", "'',XYZ "})
     void isSubstring_True_EmptyString(String emptySubstring, String text) {
         assertTrue(StringUtilities.isSubstring(emptySubstring, text));
-        // TODO: write rest
     }
 
     @ParameterizedTest
@@ -49,7 +48,7 @@ class StringUtilitiesTester {
     }
 
     @ParameterizedTest
-    @CsvSource({"'   ','   '", "xyz,xyz", "XYZ,XYZ"})
+    @CsvSource({"'   ','   '", "xyz,xyz", "xyz,' xyz '", "XYZ,XYZ"})
     void isSubstring_True_Length3Substring(String substring, String text) {
         assertTrue(StringUtilities.isSubstring(substring, text));
     }
