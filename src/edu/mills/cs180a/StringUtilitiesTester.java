@@ -22,7 +22,7 @@ class StringUtilitiesTester {
     }
 
     @ParameterizedTest
-    @CsvSource({"' ',' '", "' ','   '", "' ',x z", "' ',xyz ", "' ', xyz", "x,xyz", "y,xyz",
+    @CsvSource({"' ',' '", "' ','   '", "' ','x z'", "' ','xyz '", "' ',' xyz'", "x,xyz", "y,xyz",
             "z,xyz"})
     void isSubstring_True_Length1Substring(String substring, String text) {
         assertTrue(StringUtilities.isSubstring(substring, text));
