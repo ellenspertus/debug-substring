@@ -41,10 +41,6 @@ public class StringUtilities {
 
     // check if substring appears at the given offset in text
     private static boolean isSubstringHelper(String substring, String text, int offset) {
-        // check that the offset isn't longer than the text string
-        if (offset > text.length()) {
-            return false;
-        }
 
         // check that the substring isn't longer than the remaining text
         if ((substring.length() - 1) > (text.length() - offset)) {
