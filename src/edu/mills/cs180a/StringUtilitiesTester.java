@@ -5,21 +5,21 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 class StringUtilitiesTester {
-  @Test
-  void isSubstring_False_null() {
-    assertThrows(NullPointerException.class, () -> StringUtilities.isSubstring(null, "foo"));
-    assertThrows(NullPointerException.class, () -> StringUtilities.isSubstring("foo", null));
-    assertThrows(NullPointerException.class, () -> StringUtilities.isSubstring(null, null));
-  }
+    @Test
+    void isSubstringThrowsExceptionForNullArg() {
+        assertThrows(NullPointerException.class, () -> StringUtilities.isSubstring(null, "foo"));
+        assertThrows(NullPointerException.class, () -> StringUtilities.isSubstring("foo", null));
+        assertThrows(NullPointerException.class, () -> StringUtilities.isSubstring(null, null));
+    }
 
-  @Test
-  void isSubstring_False_EmptyString() {
-    assertTrue(StringUtilities.isSubstring("", "foo"));
-    // TODO: write rest
-  }
+    @Test
+    void isSubstringReturnsTrueForEmptySubstring() {
+        assertTrue(StringUtilities.isSubstring("", "foo"));
+    }
 
-  @Test
-  void isSubstring_True_Length1Substring() {
-    assertTrue(StringUtilities.isSubstring("A", "ABC"));
-  }
+    @Test
+    void isSubstringReturnsTrueForLengthOneSubstring() {
+        assertTrue(StringUtilities.isSubstring("A", "ABC"));
+        // TODO: write rest
+    }
 }
