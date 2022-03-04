@@ -2,7 +2,7 @@ package edu.mills.cs180a;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 class StringUtilitiesTester {
     @Test
@@ -21,5 +21,10 @@ class StringUtilitiesTester {
     void isSubstringReturnsTrueForLengthOneSubstring() {
         assertTrue(StringUtilities.isSubstring("A", "ABC"));
         // TODO: write rest
+        assertTrue(StringUtilities.isSubstring("B", "CBB"));
+        assertTrue(StringUtilities.isSubstring("C", "MJCK"));
+        assertTrue(StringUtilities.isSubstring("M", "ZAGF"));
+
+
     }
 }
