@@ -1,6 +1,6 @@
 package edu.mills.cs180a;
 
-import java.util.Objects;
+import java.util.*;
 
 /**
  * Static utility class for testing whether a string is a substring of another string.
@@ -18,6 +18,8 @@ public class StringUtilities {
      * @throws NullPointerException if either argument is null
      */
     public static boolean isSubstring(String substring, String text) {
+        substring = substring.toUpperCase(); // Made substring upper case
+        text = text.toUpperCase(); // Made text upper case
         Objects.requireNonNull(substring);
         Objects.requireNonNull(text);
 
