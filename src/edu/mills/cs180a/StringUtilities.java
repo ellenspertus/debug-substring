@@ -1,6 +1,6 @@
 package edu.mills.cs180a;
 
-import java.util.Objects;
+import java.util.*;
 
 /**
  * Static utility class for testing whether a string is a substring of another string.
@@ -23,6 +23,8 @@ public class StringUtilities {
 
         if (substring.isEmpty()) {
             return true;
+        } else if (substring.length() > text.length()) {
+            return false;
         }
 
         for (int i = 0; i < text.length(); i++) {
