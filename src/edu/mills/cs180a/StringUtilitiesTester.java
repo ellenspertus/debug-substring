@@ -27,7 +27,7 @@ class StringUtilitiesTester {
     }
 
     @ParameterizedTest
-    @CsvSource({"12, 57394712839", "$$$, GetMoney$$$$", "Abcd, Abcdefg"})
+    @CsvSource({"12, 94712839", "$$$, GetMoney$$$$", "Abcd, Abcdefg"})
     void isSubstringReturnsTrueForVariedLengthSubstring(String substring, String text) {
         assertTrue(StringUtilities.isSubstring(substring, text));
     }
@@ -39,8 +39,14 @@ class StringUtilitiesTester {
     }
 
     @ParameterizedTest
-    @CsvSource({"a, cde"})
+    @CsvSource({"a, cde", "all, angry", "cat, cast"})
     void isSubstringReturnsFalseForNoSubstring(String substring, String text) {
+        assertFalse(StringUtilities.isSubstring(substring, text));
+    }
+
+    @ParameterizedTest
+    @CsvSource({"asking, ask", "12345, 012", "ground, long"})
+    void isSubstringReturnsFalseForSubstringLongerThanText(String substring, String text) {
         assertFalse(StringUtilities.isSubstring(substring, text));
     }
 }
