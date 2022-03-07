@@ -1,6 +1,6 @@
 package edu.mills.cs180a;
 
-import java.util.Objects;
+import java.util.*;
 
 /**
  * Static utility class for testing whether a string is a substring of another string.
@@ -17,7 +17,9 @@ public class StringUtilities {
      * @return true if the substring is contained in the full string, false otherwise
      * @throws NullPointerException if either argument is null
      */
-    public static boolean isSubstring(String substring, String text) {
+    public static boolean isSubstring(String substring, String text) { // is case sensitive, white
+                                                                       // space, escape
+
         Objects.requireNonNull(substring);
         Objects.requireNonNull(text);
 
