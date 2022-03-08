@@ -1,6 +1,6 @@
 package edu.mills.cs180a;
 
-import java.util.Objects;
+import java.util.*;
 
 /**
  * Static utility class for testing whether a string is a substring of another string.
@@ -40,6 +40,7 @@ public class StringUtilities {
 
     // check if substring appears at the given offset in text
     private static boolean isSubstringHelper(String substring, String text, int offset) {
+
         // i is used as an index for substring, offset is used for text
         for (int i = 1; // The character with index 0 has already been tested.
                 i < substring.length() && offset < text.length(); i++, offset++) {
