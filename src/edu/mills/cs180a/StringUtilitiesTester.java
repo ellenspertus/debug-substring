@@ -21,20 +21,21 @@ class StringUtilitiesTester {
     }
 
     @ParameterizedTest
-    @CsvSource({"A,ABC", "m,Camel", "Z ,XYZ", "S,Ss"})
+    @CsvSource({"Z ,XYZ", "A,ABC", "m,Camel", "S,SSSSSSSSSSS"})
     void isSubstringReturnsTrueForLengthOneSubstring(String substring, String text) {
         boolean actual = StringUtilities.isSubstring(substring, text);
         assertTrue(actual);
     }
 
-    @CsvSource({"AB,ABC", "mel,Camel", "bee.,applebee.", "SSSSSSSSSS,SSSSS"})
+    @ParameterizedTest
+    @CsvSource({"mel,Camel", "bee.,applebee."})
     void isSubstringReturnsTrueForLengthAnySubstring(String substring, String text) {
         boolean actual = StringUtilities.isSubstring(substring, text);
         assertTrue(actual);
     }
 
     @ParameterizedTest
-    @CsvSource({"ABCD,ABC", "Camels,Camel", "YZZ,XYZ", "al Characters,Special Character"})
+    @CsvSource({"das,panda", "ABCDEF,ABC", "YZZ,XYZ", "ABCD,ABC", "Camels,Camel,SSSSSSSSS,S"})
     void isSubstringReturnsFalseForLongerSubstring(String substring, String text) {
         boolean actual = StringUtilities.isSubstring(substring, text);
         assertFalse(actual);

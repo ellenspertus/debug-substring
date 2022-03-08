@@ -17,8 +17,8 @@ public class StringUtilities {
      * @return true if the substring is contained in the full string, false otherwise
      * @throws NullPointerException if either argument is null
      */
-    public static boolean isSubstring(String substring, String text) { // is case sensitive, white
-                                                                       // space, escape
+    public static boolean isSubstring(String substring, String text) {
+
 
         Objects.requireNonNull(substring);
         Objects.requireNonNull(text);
@@ -45,8 +45,13 @@ public class StringUtilities {
         // i is used as an index for substring, offset is used for text
         for (int i = 1; // The character with index 0 has already been tested.
                 i < substring.length() && offset < text.length(); i++, offset++) {
-            if (text.charAt(offset) != substring.charAt(i))
+            if (text.charAt(offset) != substring.charAt(i) || text.length() < substring.length()) {
                 return false;
+            }
+        }
+        // out of bound
+        if (!text.contains(substring)) {
+            return false;
         }
         return true;
     }
