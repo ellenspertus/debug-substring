@@ -25,11 +25,6 @@ public class StringUtilities {
             return true;
         }
 
-        // A substring cannot have a bigger length that original super string.
-        if (substring.length() > text.length()) {
-            return false;
-        }
-
         for (int i = 0; i < text.length(); i++) {
             // Check if current character of the full string matches start of substring.
             if (text.charAt(i) == substring.charAt(0)) {
@@ -46,6 +41,9 @@ public class StringUtilities {
     // check if substring appears at the given offset in text
     private static boolean isSubstringHelper(String substring, String text, int offset) {
 
+        if (substring.length() - 1 > (text.length() - offset)) {
+            return false;
+        }
         // i is used as an index for substring, offset is used for text
         for (int i = 1; // The character with index 0 has already been tested.
                 i < substring.length() && offset < text.length(); i++, offset++) {
