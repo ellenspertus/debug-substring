@@ -25,6 +25,11 @@ public class StringUtilities {
             return true;
         }
 
+        // A substring cannot have a bigger length that original super string.
+        if (substring.length() > text.length()) {
+            return false;
+        }
+
         for (int i = 0; i < text.length(); i++) {
             // Check if current character of the full string matches start of substring.
             if (text.charAt(i) == substring.charAt(0)) {
