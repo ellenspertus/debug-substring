@@ -35,7 +35,7 @@ class StringUtilitiesTester {
     }
 
     @ParameterizedTest
-    @CsvSource({"das,panda", "ABCDEF,ABC", "YZZ,XYZ", "ABCD,ABC", "Camels,Camel,SSSSSSSSS,S"})
+    @CsvSource({"dasss,pandas", "ABCDEF,ABC", "YZZ,XYZ", "ABCD,ABC", "Camels,Camel,SSSSSSSSS,S"})
     void isSubstringReturnsFalseForLongerSubstring(String substring, String text) {
         boolean actual = StringUtilities.isSubstring(substring, text);
         assertFalse(actual);
@@ -49,7 +49,7 @@ class StringUtilitiesTester {
     }
 
     @ParameterizedTest
-    @CsvSource({"w is M, Yes tomorrow is Monday.", "7,7 8675654567887767567"})
+    @CsvSource({"w is Monday., Yes tomorrow is Monday.", "7,7 8675654567887767567"})
     void isSubstringReturnsTrueForLongSubstring(String substring, String text) {
         boolean actual = StringUtilities.isSubstring(substring, text);
         assertTrue(actual);

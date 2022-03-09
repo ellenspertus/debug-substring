@@ -45,14 +45,12 @@ public class StringUtilities {
         // i is used as an index for substring, offset is used for text
         for (int i = 1; // The character with index 0 has already been tested.
                 i < substring.length() && offset < text.length(); i++, offset++) {
+            text += " ";
             if (text.charAt(offset) != substring.charAt(i) || text.length() < substring.length()) {
                 return false;
             }
         }
-        // out of bound
-        if (!text.contains(substring)) {
-            return false;
-        }
+
         return true;
     }
 }
