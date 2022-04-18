@@ -29,7 +29,7 @@ class StringUtilitiesTester {
     }
     
     @ParameterizedTest
-    @CsvSource(value = {"D:ABC","B:ABC","A:ABC", "E:ABC"}, delimiter = ':')
+    @CsvSource(value = {"D:ABC", "E:ABC"}, delimiter = ':')
     void isSubstringReturnsFalseForLengthOneSubstring(String substring, String text) {
         assertFalse(StringUtilities.isSubstring(substring, text));
     }
@@ -41,7 +41,7 @@ class StringUtilitiesTester {
     }
     
     @ParameterizedTest
-    @CsvSource(value = {"DE:ABC", "EF:ABCDE"}, delimiter = ':')
+    @CsvSource(value = { "EF:ABCDE","DE:ABC"}, delimiter = ':')
     void isSubstringReturnsFalseForLengthTwoSubstring(String substring, String text) {
         assertFalse(StringUtilities.isSubstring(substring, text));
     }
